@@ -6,14 +6,14 @@ class ProductSpider(scrapy.spiders.CrawlSpider):
     allowed_domains=["steampowered.com"]
     rules = [
         scrapy.spiders.Rule(
-            scrapy.LinkExtractor(
+            scrapy.linkextractors.LinkExtractor(
                 allow='/app/(.+)/',
                 restrict_css='#search_result_container'
             ),
             callback='parse_product'
         ),
         scrapy.spiders.Rule(
-            scrapy.LinkExtractor(
+            scrapy.linkextractors.LinkExtractor(
                 allow='page=(d+)',
                 restrict_css='.search_pagination_right'
             )
