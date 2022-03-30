@@ -1,6 +1,6 @@
 import scrapy
 
-class ProductSpider(spider.CrawlSpider):
+class ProductSpider(spiders.CrawlSpider):
     name = 'products'
     start_urls = ["http://store.steampowered.com/search/?sort_by=Released_DESC"]
     allowed_domains=["steampowered.com"]
