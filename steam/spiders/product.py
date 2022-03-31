@@ -21,6 +21,12 @@ class ProductSpider(scrapy.spiders.CrawlSpider):
     ]
 
     def parse_product(self, response):
+        print()
+        print()
+        print('-------------------------------')
+        print('| Got Title: ' + response.css('.apphub_AppName ::text').extract_first())
+        print('| Got Specs: ' + str(response.css('.game_area_details_specs a ::text').extract()))
+        print('-------------------------------')
         return {
             'app_name': response.css('.apphub_AppName ::text').extract_first(),
             'specs': response.css('.game_area_details_specs a ::text').extract()
